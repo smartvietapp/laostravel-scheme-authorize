@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			row-gap: 32px;
+			padding-top: 160px;
+			height: 100vh;
+		}
+		.authorize-app {
+			text-decoration: none;
+			background-color: #faa107;
+			width: 200px;
+			height: 48px;
+			border-radius: 8px;
+			color: white;
+			font-size: large;
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<a class="authorize-app" href="laostravel://app">Continue</a>
+	</div>
+</body>
+
+<script>
+	const urlParams = new URLSearchParams(window.location.search);
+	const authorizationCode = urlParams.get('authorization_code');
+	if (authorizationCode) {
+		const link = document.querySelector('a.authorize-app');
+		if (link) {
+			link.href = `laostravel://app/authorize?authorization_code=${encodeURIComponent(authorizationCode)}`;
+		}
+	}
+</script>
+</html>
