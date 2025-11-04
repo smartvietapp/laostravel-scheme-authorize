@@ -45,5 +45,21 @@
 			link.href = `laostravel://app/authorize?authorization_code=${encodeURIComponent(authorizationCode)}`;
 		}
 	}
+
+	function detectDeviceSmart() {
+    const ua = navigator.userAgent;
+    const isMobileUA = /Mobi|Android|iPhone|iPad|iPod/i.test(ua);
+    const isSmallScreen = window.innerWidth <= 768;
+
+    if (isMobileUA || isSmallScreen) {
+      console.log("Thiết bị là: 📱 Mobile");
+      return "mobile";
+    } else {
+      console.log("Thiết bị là: 💻 Desktop");
+      return "desktop";
+    }
+  }
+
+  window.onload = detectDeviceSmart;
 </script>
 </html>
