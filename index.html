@@ -42,24 +42,35 @@
 	if (authorizationCode) {
 		const link = document.querySelector('a.authorize-app');
 		if (link) {
-			link.href = `laostravel://app/authorize?authorization_code=${encodeURIComponent(authorizationCode)}`;
+			console.log(authorizationCode);
+			
+			const deviceType = detectDeviceSmart();
+			console.log(deviceType);
+			
+			if(deviceType === 'desktop') {
+				link.href = `http://localhost:5000/auth/login?authorization_code=${encodeURIComponent(authorizationCode)}`;
+			} else {
+				link.href = `laostravel://app/authorize?authorization_code=${encodeURIComponent(authorizationCode)}`;
+			}
+		
 		}
+
+
 	}
 
 	function detectDeviceSmart() {
     const ua = navigator.userAgent;
     const isMobileUA = /Mobi|Android|iPhone|iPad|iPod/i.test(ua);
-    const isSmallScreen = window.innerWidth <= 768;
+	// kiểm tra bằng kích thước màn hình
+    // const isSmallScreen = window.innerWidth <= 768;
+	// if (isMobileUA || isSmallScreen) {
 
     if (isMobileUA || isSmallScreen) {
-      console.log("Thiết bị là: 📱 Mobile");
       return "mobile";
     } else {
-      console.log("Thiết bị là: 💻 Desktop");
       return "desktop";
     }
   }
 
-  window.onload = detectDeviceSmart;
 </script>
 </html>
