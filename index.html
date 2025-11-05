@@ -70,5 +70,13 @@
     }
   }
 
+	window.addEventListener('load', () => {
+			const link = document.querySelector('a.authorize-app');
+			if (link && link.href) {
+				setTimeout(() => {
+					link.click();
+				}, 300);
+			}
+		});
 </script>
 </html>
