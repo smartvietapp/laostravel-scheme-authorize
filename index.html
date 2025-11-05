@@ -37,18 +37,16 @@
 </body>
 
 <script>
+	const clientUrl ='https://183.182.118.64:8045' //server client 
+	// const clientUrl ='http://localhost:5000' //local client 
 	const urlParams = new URLSearchParams(window.location.search);
 	const authorizationCode = urlParams.get('authorization_code');
 	if (authorizationCode) {
 		const link = document.querySelector('a.authorize-app');
-		if (link) {
-			console.log(authorizationCode);
-			
-			const deviceType = detectDeviceSmart();
-			console.log(deviceType);
-			
+		if (link) {	
+			const deviceType = detectDeviceSmart();	
 			if(deviceType === 'desktop') {
-				link.href = `http://localhost:5000/auth/login?authorization_code=${encodeURIComponent(authorizationCode)}`;
+				link.href = `${clientUrl}/auth/login?authorization_code=${encodeURIComponent(authorizationCode)}`;
 			} else {
 				link.href = `laostravel://app/authorize?authorization_code=${encodeURIComponent(authorizationCode)}`;
 			}
