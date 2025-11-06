@@ -37,8 +37,8 @@
 </body>
 
 <script>
-	const clientUrl ='https://183.182.118.64:8045' //server client 
-	// const clientUrl ='http://localhost:5000' //local client 
+	const clientUrl ='http://183.182.118.64:8045/auth/login' //server client 
+	// const clientUrl ='http://localhost:5000/auth/login' //local client 
 	const urlParams = new URLSearchParams(window.location.search);
 	const authorizationCode = urlParams.get('authorization_code');
 	if (authorizationCode) {
