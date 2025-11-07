@@ -39,7 +39,11 @@
 <script>
 	// const clientUrl ='http://183.182.118.64:8045/auth/login' //server client 
 	// const clientUrl ='http://localhost:5000/auth/login' //local client 
-	const clientUrl ='https://laotravel.la:8045/auth/login' //domain client 
+
+	let clientUrl ='https://laotravel.la:8045/auth/login' //domain client 
+	const clientUrlLocal ='http://localhost:5000/auth/login' //local client
+	const isOwner = localStorage.getItem('to_local') === '1';
+	
 	const urlParams = new URLSearchParams(window.location.search);
 	const authorizationCode = urlParams.get('authorization_code');
 	if (authorizationCode) {
@@ -47,6 +51,9 @@
 		if (link) {	
 			const deviceType = detectDeviceSmart();	
 			if(deviceType === 'desktop') {
+				if(isOwner){
+					clientUrl = clientUrlLocal;
+				}
 				link.href = `${clientUrl}/auth/login?authorization_code=${encodeURIComponent(authorizationCode)}`;
 			} else {
 				link.href = `laostravel://app/authorize?authorization_code=${encodeURIComponent(authorizationCode)}`;
@@ -71,13 +78,13 @@
     }
   }
 
-	window.addEventListener('load', () => {
-			const link = document.querySelector('a.authorize-app');
-			if (link && link.href) {
-				setTimeout(() => {
-					link.click();
-				}, 300);
-			}
-		});
+	// window.addEventListener('load', () => {
+	// 		const link = document.querySelector('a.authorize-app');
+	// 		if (link && link.href) {
+	// 			setTimeout(() => {
+	// 				link.click();
+	// 			}, 300);
+	// 		}
+	// 	});
 </script>
 </html>
