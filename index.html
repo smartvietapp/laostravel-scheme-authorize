@@ -37,8 +37,9 @@
 </body>
 
 <script>
-	const clientUrl ='http://183.182.118.64:8045/auth/login' //server client 
+	// const clientUrl ='http://183.182.118.64:8045/auth/login' //server client 
 	// const clientUrl ='http://localhost:5000/auth/login' //local client 
+	const clientUrl ='https://laotravel.la:8045/auth/login' //domain client 
 	const urlParams = new URLSearchParams(window.location.search);
 	const authorizationCode = urlParams.get('authorization_code');
 	if (authorizationCode) {
