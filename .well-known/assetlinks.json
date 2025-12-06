@@ -1,0 +1,41 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.utravel",
+      "sha256_cert_fingerprints": [
+        "C7:56:84:23:AF:76:7C:55:E7:B4:C5:D2:ED:53:A6:79:83:CF:8C:D5:9F:A2:C4:27:B8:9B:D9:EA:53:8E:9E:BF"
+      ]
+    }
+  },
+    {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.utravel",
+      "sha256_cert_fingerprints": [
+        "22:D4:52:3B:D7:BF:FC:7C:3A:E5:76:E5:74:5E:F5:E3:C8:C0:A9:78:49:82:D8:B6:87:B7:2C:99:46:92:CE:A3"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.mynewapp",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  }
+]
